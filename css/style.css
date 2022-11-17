@@ -155,7 +155,7 @@ body{
     object-position: center;
     border-radius: 100%;
 }
-ul{
+.message-container{
     display: flex;
     flex-direction: column;
     list-style: none;

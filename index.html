@@ -50,10 +50,9 @@
             </div>
             <div class="contacts">
                 <div 
-                v-for="(contact,index) in contacts" 
-                :key="contact.avatar" 
+                v-for="(contact,index) in contacts"
                 class="contact" 
-                :class="contact.visible == false  ?  'hidden': '' " 
+                :class="contact.visible == false ? 'hidden': '' " 
                 @click="profileActive(contact)"
                 >
                     <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
@@ -71,9 +70,9 @@
         </div>
         <div class="area-right">
             <div class="chat-selected">
-                <div class="avatar-user-container">
-                    <img src="img/avatar_1.jpg" alt="" class="avatar-user">
-                    <span class="username">Edoardo</span>
+                <div v-for="(profile, i) in selectedUser" class="avatar-user-container">
+                    <img :src="'img/avatar'+ profile.avatar + '.jpg'" alt="" class="avatar-user">
+                    <span class="username">{{profile.name}}</span>
                 </div>
                 <div class="icon-container">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -82,22 +81,13 @@
                 </div>
             </div>
             <div class="chat-active">
-                <div v-for="(message, i) in selectedUser.messages" >
-                    {{message.message}}
+                <div v-for="(message, i) in selectedUser.messages" class="message-container">
+                    <div class="message" :class="(message.status == 'sent') ? 'sent' : 'received'">
+                        <p>{{message.message}}</p>
+                        <p class="date">{{message.date}}</p>
+                    </div>
                 </div>
-                <!-- <div v-for="(item, index) in contacts" :kay="item.avatar">
-                    <ul>
-                        <li 
-                        class="message"
-                        v-for="(mesItem, i) in item.messages" 
-                        :kay="item.data" 
-                        :class="(mesItem.status == 'sent') ? 'sent' : 'received'"
-                        >
-                            <p>{{mesItem.message}}</p>
-                            <p class="date">{{mesItem.date}}</p>
-                        </li>
-                    </ul>
-                </div>  -->
+               
             </div>
         </div>       
     </div>
