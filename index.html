@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="search">
-                <i class="fa-solid fa-magnifying-glass"></i> <input v-model="searchInput" @kayup="searchContact" type="text" placeholder="cerca o inizia una nuova chat">
+                <i class="fa-solid fa-magnifying-glass"></i> <input v-model="searchInput" @keyup="searchContact" type="text" placeholder="cerca o inizia una nuova chat">
             </div>
             <div class="contacts">
                 <div 
@@ -54,7 +54,7 @@
                 :key="contact.avatar" 
                 class="contact" 
                 :class="contact.visible == false  ?  'hidden': '' " 
-                @click="chatSelect(index)"
+                @click="profileActive(contact)"
                 >
                     <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                     <div class="details">
@@ -82,7 +82,10 @@
                 </div>
             </div>
             <div class="chat-active">
-                <div v-for="(item, index) in contacts" :kay="item.avatar">
+                <div v-for="(message, i) in selectedUser.messages" >
+                    {{message.message}}
+                </div>
+                <!-- <div v-for="(item, index) in contacts" :kay="item.avatar">
                     <ul>
                         <li 
                         class="message"
@@ -94,7 +97,7 @@
                             <p class="date">{{mesItem.date}}</p>
                         </li>
                     </ul>
-                </div> 
+                </div>  -->
             </div>
         </div>       
     </div>

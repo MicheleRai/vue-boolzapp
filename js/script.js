@@ -189,21 +189,21 @@ var app = new Vue({
         ],
         },
     ],
+    selectedUser: {},
     index:0,
     input:0,
     searchInput:"",
     },
     methods:{
-      chatSelect(indiceChat){
-        this.index = indiceChat;
-        console.table()
+      profileActive(contact){
+        this.selectedUser = contact;
       },
       searchContact(){
-        this.contacts.forEach((i) => {
-          if (this.contacts[i].name.toLowerCase().includes(this.searchInput.toLowerCase())){
-              this.contacts[i].visible = true;
+        this.contacts.forEach((contact) => {
+          if (contact.name.toLowerCase().includes(this.searchInput.toLowerCase())){
+              contact.visible = true;
           } else {
-            this.contacts[i].visible = false;
+            contact.visible = false;
           }
         });
         }
