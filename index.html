@@ -14,10 +14,10 @@
 	</style>
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <!-- vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" defer></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
     <!-- script -->
     <script src="js/script.js" defer></script>
@@ -84,9 +84,14 @@
             <div class="chat-active">
                 <div v-for="(item, index) in contacts" :kay="item.avatar">
                     <ul>
-                        <li v-for="(mesItem, i) in item.messages" :kay="item.data" >
+                        <li 
+                        class="message"
+                        v-for="(mesItem, i) in item.messages" 
+                        :kay="item.data" 
+                        :class="(mesItem.status == 'sent') ? 'sent' : 'received'"
+                        >
                             <p>{{mesItem.message}}</p>
-                            <p>{{mesItem.date}}</p>
+                            <p class="date">{{mesItem.date}}</p>
                         </li>
                     </ul>
                 </div> 
