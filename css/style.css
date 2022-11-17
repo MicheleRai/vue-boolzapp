@@ -3,3 +3,37 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    display: flex;
+    height: 100vh;
+    padding: 1.5rem;
+    background: linear-gradient(to bottom, #009688 20%, #D8DBD6 15% 100%);
+}
+.container{
+    margin: auto;
+    display: flex;
+    height: 100%;
+    max-width: 900px;
+    flex: 0 0 100%;
+}
+.area-left{
+    flex: 0 0 35%;
+    background-color: red;
+}
+.area-left .user-info{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #eaeaea;
+}
+.area-left .avatar-user {
+    height: 100px;
+    object-fit: center;
+    object-position: center;
+    border-radius: 100%;
+}
+.area-right{
+    flex: 0 0 65%;
+    background-color: blue;
+}
