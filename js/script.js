@@ -28,7 +28,7 @@ var app = new Vue({
     data: {
       contacts: [
         {
-        name: 'Michele',
+        name: 'Edoardo',
         avatar: '_1',
         visible: true,
         messages: [

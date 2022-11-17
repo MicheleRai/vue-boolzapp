@@ -12,16 +12,46 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
     <!-- script -->
     <script src="js/script.js" defer></script>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
     <div id="root" class="container">
         <div class="area-left">
             <div class="user-info">
-                <img src="img/u-1.png" alt="" class="avatar-user">
-                <span class="username">Michele</span>
-                <i></i>
-                <i></i>
-                <i></i>
+                <div class="avatar-user-container">
+                    <img src="img/avatar_2.jpg" alt="" class="avatar-user">
+                    <span class="username">Michele</span>
+                </div>
+                <div class="icon-container">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="bell"><i class="fa-solid fa-bell-slash"></i></div>
+                <div class="notification-text">
+                    <span>Ricevi notifiche di nuovi messaggi</span>
+                    <a href="!">Attiva notifiche desktop</a>
+                </div>
+            </div>
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i> <input type="text" placeholder="cerca o inizia una nuova chat">
+            </div>
+            <div class="contacts">
+                <div v-for="contact in contacts" :key="contact.avatar" class="contact">
+                    <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
+                    <div class="details">
+                        <div class="first-line">
+                            <div class="username">{{contact.name}}</div>
+                            <div class="date">12:00</div>
+                        </div>
+                        <div class="second-line">
+                            ultimo messaggio
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="area-right"></div>       
