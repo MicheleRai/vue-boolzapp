@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 body{
+    font-family: 'Roboto', sans-serif;
     display: flex;
     height: 100vh;
     padding: 1.5rem;
@@ -74,6 +75,9 @@ body{
     flex-direction: column;
     flex-wrap: nowrap;
 }
+.notification-text a{
+    color: grey;
+}
 .search{
     display: flex;
     flex-wrap: nowrap;
@@ -125,11 +129,32 @@ body{
     white-space: nowrap;
     overflow-x: hidden;
 }
-
+.contact .second-line{
+    margin-top: 1rem;
+    color: rgb(161, 159, 159);
+}
 
 .area-right{
     flex: 0 0 65%;
     background-image: url("https://i.pinimg.com/originals/ab/ab/60/abab60f06ab52fa7846593e6ae0c9a0b.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+.area-right .chat-selected{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #eaeaea;
+}
+.chat-selected .avatar-user {
+    height: 70px;
+    aspect-ratio: 1;
+    object-fit: covers;
+    object-position: center;
+    border-radius: 100%;
+}
+.hidden{
+    display: none;
 }

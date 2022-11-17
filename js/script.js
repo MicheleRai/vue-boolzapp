@@ -50,8 +50,8 @@ var app = new Vue({
         ],
         },
         {
-        name: 'Fabio',
-        avatar: '_2',
+        name: 'Andrea',
+        avatar: '_io',
         visible: true,
         messages: [
         {
@@ -188,5 +188,24 @@ var app = new Vue({
         }
         ],
         },
-    ]},
-  });
+    ],
+    index:0,
+    input:0,
+    searchInput:"",
+    },
+    methods:{
+      chatSelect(indiceChat){
+        this.index = indiceChat;
+        console.table()
+      },
+      searchContact(){
+        this.contacts.forEach((i) => {
+          if (this.contacts[i].name.toLowerCase().includes(this.searchInput.toLowerCase())){
+              this.contacts[i].visible = true;
+          } else {
+            this.contacts[i].visible = false;
+          }
+        });
+        }
+      }
+    });
