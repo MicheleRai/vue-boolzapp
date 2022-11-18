@@ -218,7 +218,7 @@ var app = new Vue({
     methods:{
       profileActive(contact){
         this.selectedUser = contact;
-        console.table(selectedUser);
+        console.table(this.selectedUser);
       },
       searchContact(){
         this.contacts.forEach((contact) => {
@@ -230,14 +230,14 @@ var app = new Vue({
         });
         },
         sendMessage(){
-          this.contact[this.selectedUser].messages.push({
+          this.selectedUser.messages.push({
             data: this.getNow(),
             message: this.newMessage,
             status:'sent',
           });
           this.newMessage = '';
           setTimeout(() => {
-          this.contact[this.selectedUser].messages.push({
+          this.selectedUser.messages.push({
             data: this.getNow(),
             message: 'ok',
             status:'received',
