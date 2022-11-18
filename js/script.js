@@ -211,10 +211,9 @@ var app = new Vue({
       }
       ],
       },
-    index:0,
-    input:0,
     searchInput:"",
     newMessage:"",
+    menuToggle: false,
     },
     methods:{
       profileActive(contact){
@@ -232,18 +231,24 @@ var app = new Vue({
         },
         sendMessage(){
           this.contact[this.selectedUser].messages.push({
-            data: new Date().toISOString().replaceAll('-', '/').repkaceAll('T', ' ').split('.')[0],
+            data: this.getNow(),
             message: this.newMessage,
             status:'sent',
           });
           this.newMessage = '';
           setTimeout(() => {
           this.contact[this.selectedUser].messages.push({
-            data: new Date().toISOString().replaceAll('-', '/').repkaceAll('T', ' ').split('.')[0],
+            data: this.getNow(),
             message: 'ok',
             status:'received',
           });
         }, 1500);
         },
+        getNow() {
+          return luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
+        },
+        toggleTrigger(index){
+          this.menuToggle[index] = !this.menuToggle[index]
+        }
       },
     });

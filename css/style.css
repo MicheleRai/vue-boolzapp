@@ -105,6 +105,7 @@ body{
     padding: 0.5rem;
     gap: 0.5rem;
     border-bottom: 2px solid #FAFAFA;
+    cursor: pointer;
 }
 .contact:hover{
     background-color: #E9EBEB;
@@ -139,6 +140,7 @@ body{
     background-image: url("https://i.pinimg.com/originals/ab/ab/60/abab60f06ab52fa7846593e6ae0c9a0b.png");
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 .area-right .chat-selected{
     display: flex;
@@ -165,11 +167,13 @@ body{
     border-radius: 10px;
     width: 30%;
     padding: 0.5rem;
+    position: relative;
 }
 .sent{
     background-color: #D5F9BA;
     text-align: end;
     align-self: flex-end;
+    padding-right: 2rem;
 }
 .received{
     background-color: white;
@@ -180,4 +184,59 @@ body{
 }
 .hidden{
     display: none;
+}
+.message .message-menu-toggler {
+	display: none;
+	padding: .3em;
+}
+
+.message .message-menu-toggler:hover {
+	cursor: pointer;
+}
+
+.message:hover .message-menu-toggler {
+	display: block;
+	position: absolute;
+	right: .5em;
+	top: .5em;
+}
+
+.message .message-menu {
+	position: absolute;
+	right: 0;
+	top: calc(100% - 5px);
+	list-style: none;
+	background-color: white;
+	box-shadow: 0 0 5px #888888;
+}
+
+.message .message-menu li {
+	padding: 1rem;
+}
+
+.message .message-menu li:hover {
+	cursor: pointer;
+	background-color: #EAEAEA;
+}
+.bottom-bar{
+position: absolute;
+bottom: 0;
+right: 0;
+left: 0;
+display: flex;
+justify-content: space-around;
+align-items: center;
+background-color: #F3EEEA;
+height: 70px;
+padding: 1rem;
+}
+.bottom-bar input{
+    width: 30vw;
+    height: 90%;
+    padding: 0.5rem;
+}
+.bottom-bar i{
+    font-size: 30px;
+    cursor: pointer;
+    color: #6B7376;
 }

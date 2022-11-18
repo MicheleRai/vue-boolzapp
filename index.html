@@ -12,6 +12,8 @@
 			display: none;
 		}
 	</style>
+    <!-- luxon library for formatting dates -->
+	<script src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js" defer></script>
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,10 +87,17 @@
                     <div class="message" :class="(message.status == 'sent') ? 'sent' : 'received'">
                         <p>{{message.message}}</p>
                         <p class="date">{{message.date}}</p>
+                        <i class="fa-solid fa-chevron-down message-menu-toggler" @click="toggleTrigger(i)"></i>
+                        <ul v-show="menuToggle" class="message-menu">
+                            <li>Info messaggio</li>
+                            <li>Cancella messaggio</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="bottom-bar">
-                    <input type="text" placeholder="invia un messaggio" v-model="newMessage" @keyup="sendMessage">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup="sendMessage">
+                    <i class="fa-solid fa-microphone"></i>
                 </div>
                
             </div>
