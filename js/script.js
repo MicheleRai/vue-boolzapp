@@ -235,7 +235,6 @@ var app = new Vue({
             message: this.newMessage,
             status:'sent',
           });
-          console.log(this.getNow);
           this.newMessage = '';
           setTimeout(() => {
           this.selectedUser.messages.push({
@@ -244,7 +243,6 @@ var app = new Vue({
             status:'received',
             });
           }, 1500);
-          console.log(this.getNow);
         },
         getNow(){
           return luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
