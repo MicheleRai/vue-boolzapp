@@ -72,9 +72,10 @@
         </div>
         <div class="area-right">
             <div class="chat-selected">
-                <div v-for="(profile, i) in selectedUser" class="avatar-user-container">
-                    <img :src="'img/avatar'+ profile.avatar + '.jpg'" alt="" class="avatar-user">
-                    <span class="username">{{profile.name}}</span>
+                <!-- v-for="(profile, i) in selectedUser" -->
+                <div class="avatar-user-container">
+                    <img :src="'img/avatar'+ selectedUser.avatar + '.jpg'" alt="" class="avatar-user">
+                    <span class="username">{{selectedUser.name}}</span>
                 </div>
                 <div class="icon-container">
                     <i class="fa-solid fa-magnifying-glass"></i>
