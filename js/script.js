@@ -214,11 +214,12 @@ var app = new Vue({
     index:0,
     input:0,
     searchInput:"",
+    newMessage:"",
     },
     methods:{
       profileActive(contact){
         this.selectedUser = contact;
-        console.table(selectedUser  );
+        console.table(selectedUser);
       },
       searchContact(){
         this.contacts.forEach((contact) => {
@@ -228,6 +229,21 @@ var app = new Vue({
             contact.visible = false;
           }
         });
-        }
-      }
+        },
+        sendMessage(){
+          this.contact[this.selectedUser].messages.push({
+            data: new Date().toISOString().replaceAll('-', '/').repkaceAll('T', ' ').split('.')[0],
+            message: this.newMessage,
+            status:'sent',
+          });
+          this.newMessage = '';
+          setTimeout(() => {
+          this.contact[this.selectedUser].messages.push({
+            data: new Date().toISOString().replaceAll('-', '/').repkaceAll('T', ' ').split('.')[0],
+            message: 'ok',
+            status:'received',
+          });
+        }, 1500);
+        },
+      },
     });

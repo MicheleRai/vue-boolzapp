@@ -87,6 +87,9 @@
                         <p class="date">{{message.date}}</p>
                     </div>
                 </div>
+                <div class="bottom-bar">
+                    <input type="text" placeholder="invia un messaggio" v-model="newMessage" @keyup="sendMessage">
+                </div>
                
             </div>
         </div>       
