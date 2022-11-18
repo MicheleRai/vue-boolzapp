@@ -231,20 +231,22 @@ var app = new Vue({
         },
         sendMessage(){
           this.selectedUser.messages.push({
-            data: this.getNow(),
+            date: this.getNow(),
             message: this.newMessage,
             status:'sent',
           });
+          console.log(this.getNow);
           this.newMessage = '';
           setTimeout(() => {
           this.selectedUser.messages.push({
-            data: this.getNow(),
+            date: this.getNow(),
             message: 'ok',
             status:'received',
-          });
-        }, 1500);
+            });
+          }, 1500);
+          console.log(this.getNow);
         },
-        getNow() {
+        getNow(){
           return luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
         },
         toggleTrigger(index){
