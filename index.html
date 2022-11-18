@@ -61,7 +61,7 @@
                     <div class="details">
                         <div class="first-line">
                             <div class="username">{{contact.name}}</div>
-                            <div class="date">12:00</div>
+                            <div class="date">{{contact.messages[contact.messages.length - 1].date}}</div>
                         </div>
                         <div class="second-line">
                             {{contact.messages[contact.messages.length - 1].message}}...
@@ -75,7 +75,10 @@
                 <!-- v-for="(profile, i) in selectedUser" -->
                 <div class="avatar-user-container">
                     <img :src="'img/avatar'+ selectedUser.avatar + '.jpg'" alt="" class="avatar-user">
-                    <span class="username">{{selectedUser.name}}</span>
+                    <span>
+                        <p class="username">{{selectedUser.name}}</p>
+                        <p class="date">ultimo messaggio alle: {{selectedUser.messages[selectedUser.messages.length - 1].date}}</p>
+                    </span>
                 </div>
                 <div class="icon-container">
                     <i class="fa-solid fa-magnifying-glass"></i>
